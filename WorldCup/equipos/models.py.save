@@ -13,7 +13,7 @@ PIEHABIL = (
     ('derecho', 'Derecho'),
     ('izquierdo', 'Izquierdo'),
 )
-LETITULAR = (
+LEPOSICION = (
     ('seleccione', 'Seleccione'),
     ('si', 'Si'),
     ('no', 'No'),
@@ -37,15 +37,15 @@ class Equipo(models.Model):
 class Jugador(models.Model):
     nombreJugador = models.CharField(max_length=60)
     posicion = models.CharField(choices=POSICIONES, default='seleccione', max_length=10)
-    equipoJugador = models.ForeignKey(Equipo)
-    estatura = models.PositiveIntegerField(null=True)
+    equipoJugador = m
+    estatura = models.CharField(max_length=50)
     pieJugador = models.CharField(choices=PIEHABIL, default='seleccione', max_length=10)
-    tarjetaAmarilla = models.IntegerField(null=True)
-    tarjetaroja = models.IntegerField(null=True)
-    lesionado =  models.CharField(choices=LETITULAR, default='seleccione', max_length=10)
-    titular = models.CharField(choices=LETITULAR, default='seleccione', max_length=10)
-    goles = models.PositiveIntegerField(null=True)
-    foto = models.ImageField(upload_to='images', verbose_name='Foto', blank=True)
+    tarjetaAmarilla = models.IntergerField(default='0')
+    tarjetaroja = models.IntergerField(default='0') 
+    lesionado =  models.CharField(choices='LEPOSICION', default='seleccione', max_length=10)
+    titular = models.CharField(choices='LEPOSICION', default='seleccione', max_length=10
+    goles = models.PositiveIntergerField(default='0')
+    foto = models.ImageField(upload_to='images', verbose_name='Foto', null=True,)
     def __unicode__(self):
         return self.nombreJugador
 
