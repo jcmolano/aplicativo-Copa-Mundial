@@ -60,10 +60,10 @@ WSGI_APPLICATION = 'worldcup.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'worldCup',
+        'NAME': 'worldcup',
         'USER': 'root',
-        'PASSWORD':  '17117697',
-        'HOST': '127.0.01',
+        'PASSWORD': 'camilo1994',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
@@ -86,5 +86,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'/static')
+STATICFILES_DIRS = ('/home/juan/WorldCup/static',)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
